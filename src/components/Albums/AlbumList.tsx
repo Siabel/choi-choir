@@ -2,26 +2,20 @@
 
 import AlbumCard from "./AlbumCard";
 
-const dummyAlbums = [
-  {
-    title: "2025 봄 정기 공연",
-    description: "따뜻한 봄날의 하모니",
-    thumbnail: "https://placehold.co/600x400",
-    date: "2025-04-15",
-  },
-  {
-    title: "여름 합창 캠프",
-    description: "열정과 화합의 무대",
-    thumbnail: "https://placehold.co/600x400",
-    date: "2025-07-10",
-  },
-];
+export type Album = {
+  id: string;
+  type: "photo" | "video";
+  title: string;
+  description: string;
+  thumbnail: string;
+  date: string;
+};
 
-export default function AlbumList() {
+export default function AlbumList({ albums }: { albums: Album[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {dummyAlbums.map((album, idx) => (
-        <AlbumCard key={idx} {...album} />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {albums.map((album) => (
+        <AlbumCard key={album.id} {...album} />
       ))}
     </div>
   );
