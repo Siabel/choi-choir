@@ -8,7 +8,7 @@ const navItems = [
     label: "합창단 소개",
     dropdown: [
       { href: "/about", label: "소개 페이지" },
-      { href: "/about/director", label: "단장 소개" },
+      { href: "/about/conductor", label: "단장 소개" },
       { href: "/about/members", label: "단원 소개" },
     ],
   },
