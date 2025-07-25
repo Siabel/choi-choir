@@ -27,6 +27,13 @@ const navItems = [
     ],
   },
   {
+    label: "자료실",
+    dropdown: [
+      { href: "/scores", label: "악보" },
+      { href: "/tracks", label: "연습곡" },
+    ],
+  },
+  {
     label: "커뮤니티",
     dropdown: [
       { href: "/boards/notice", label: "공지사항" },
