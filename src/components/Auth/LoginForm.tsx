@@ -105,6 +105,12 @@ export default function LoginForm() {
           </button>
         </div>
       </div>
+      <div className="text-center text-sm mt-6">
+        계정이 없으신가요?{" "}
+        <a href="/signup" className="text-primary hover:underline font-medium">
+          회원가입
+        </a>
+      </div>
     </form>
   );
 }
