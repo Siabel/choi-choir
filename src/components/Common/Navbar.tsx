@@ -15,8 +15,8 @@ const navItems = [
   {
     label: "공연 일정",
     dropdown: [
-      { href: "/schedules/upcoming", label: "예정 공연" },
-      { href: "/schedules/past", label: "지난 공연" },
+      { href: "/schedules/calendar", label: "일정표" },
+      { href: "/schedules/list", label: "공연 목록" },
     ],
   },
   {
