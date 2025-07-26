@@ -42,22 +42,37 @@ export default function BoardList({ boardId }: { boardId: string }) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">공지사항</h1>
-      <ul className="divide-y divide-gray-200">
+      <h1 className="text-2xl font-bold mb-6">
+        {boardId === "free" ? "자유게시판" : "공지사항"}
+      </h1>
+
+      {boardId === "free" && (
+        <div className="mb-4">
+          <Link
+            href={`/boards/${boardId}/new`}
+            className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition"
+          >
+            글쓰기
+          </Link>
+        </div>
+      )}
+
+      <ul className="grid grid-cols-1 gap-4">
         {posts.map((post) => (
-          <li key={post.id} className="py-4">
+          <li key={post.id}>
             <Link
               href={`/boards/${boardId}/${post.id}`}
-              className="hover:underline block"
+              className="block bg-white rounded-lg shadow p-4 hover:shadow-lg transition"
             >
-              <p className="font-medium">{post.title}</p>
-              <span className="text-sm text-gray-500">
+              <h2 className="font-semibold text-lg mb-2">{post.title}</h2>
+              <div className="text-sm text-gray-500">
                 {post.author} · {post.createdAt}
-              </span>
+              </div>
             </Link>
           </li>
         ))}
       </ul>
+
     </div>
   );
 }

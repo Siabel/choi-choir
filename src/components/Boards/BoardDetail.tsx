@@ -9,6 +9,7 @@ interface PostDetail {
   content: string;
   author: string;
   createdAt: string;
+  fileUrl?: string;
 }
 
 export default function BoardDetail({
@@ -31,6 +32,7 @@ export default function BoardDetail({
           content: data.content,
           author: data.author,
           createdAt: data.createdAt?.toDate?.().toLocaleString() ?? "",
+          fileUrl: data.fileUrl || "",
         });
       }
     };
@@ -40,12 +42,18 @@ export default function BoardDetail({
   if (!post) return <p>로딩 중...</p>;
 
   return (
-    <article className="space-y-4">
+    <article className="bg-white p-6 rounded-lg shadow space-y-4">
       <h1 className="text-2xl font-bold">{post.title}</h1>
       <div className="text-gray-500">
         {post.author} · {post.createdAt}
       </div>
-      <div className="whitespace-pre-line mt-4">{post.content}</div>
+      {post.fileUrl && (
+        <div className="mt-4">
+          <img src={post.fileUrl} alt="첨부 이미지" className="max-w-full rounded" />
+        </div>
+      )}
+      <div className="whitespace-pre-line mt-4 text-gray-800">{post.content}</div>
     </article>
+
   );
 }
