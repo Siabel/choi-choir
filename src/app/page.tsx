@@ -11,13 +11,6 @@ interface Schedule {
   posterUrl?: string;
 }
 
-// const dummyNextSchedule: Schedule = {
-//   id: "test123",
-//   title: "2025 봄 정기연주회",
-//   date: "2025-05-10",
-//   posterUrl: "/dummy/gloria1.png",
-// };
-
 export default function HomePage() {
   const [nextSchedule, setNextSchedule] = useState<Schedule | null>(null);
 
